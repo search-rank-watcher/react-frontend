@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, Scatter, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import moment from 'moment';
-moment.lang('ja', {weekdays: ["日","月","火","水","木","金","土"]});
+moment.locale("ja", { weekdays: ["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"], weekdaysShort: ["日","月","火","水","木","金","土"], });
 
 class CustomizedLabel extends PureComponent {
   render() {
@@ -56,7 +56,7 @@ const CustomizedAxisTick = (props) => {
     	<g transform={`translate(${x},${y})`}>
         <text x={0} y={0} dy={8} fill="#666" fontSize={10} >
           <tspan textAnchor="middle" x="0">{moment(payload.value).format('M/D')}</tspan>
-          <tspan textAnchor="middle" x="0" dy="12" fontSize={8}>{moment(payload.value).format('(dddd)')}</tspan>
+          <tspan textAnchor="middle" x="0" dy="12" fontSize={8}>{moment(payload.value).format('(ddd)')}</tspan>
         </text>
       </g>
     );
